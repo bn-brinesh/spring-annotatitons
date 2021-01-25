@@ -1,0 +1,21 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+   http://www.springframework.org/schema/context 
+   http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+	<context:annotation-config/>
+	<context:component-scan base-package="com.pkr"/>
+	<!-- This line for properties is less prioritized if the annotation based property have same keys -->
+	<context:property-placeholder location="calc.properties"/>
+
+	<bean id="calcMgr" class="com.pkr.spring.application.action.CalculatorManager"/>
+	<bean id="applicationContextInitializer" class="com.pkr.spring.application.context.ApplicationContextInitializer"/>
+	
+	<bean id= "subtractOpr" class="com.pkr.spring.application.action.impl.SubtractionOperation"/>
+	<bean id= "subtractOpr1" class="com.pkr.spring.application.action.impl.SubtractionOperation"/>
+</beans>
